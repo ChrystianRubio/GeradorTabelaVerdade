@@ -1,5 +1,6 @@
 import re 
 import csv
+import os
 class myStack:
     def __init__(self):
         self.stack = []
@@ -116,10 +117,30 @@ def WriteToConsole(result : list):
         row.append(tmp)
 
 def WriteToFile(result : list):
-    csvFile = open('res.csv','w')
-    writer = csv.writer(csvFile)
-    writer.writerows(result)
-    csvFile.close()
+	nomearqv = ""
+	while(True):
+		if nomearqv == "":
+			nomearqv = input('Insira o nome do arquivo: ')
+			if not os.path.isfile(nomearqv):
+				csvFile = open(nomearqv,'w')
+				writer = csv.writer(csvFile)
+				writer.writerows(result)
+				csvFile.close()
+				break
+		else:
+			subscrever = input('O arquivo já existe! Deseja subscrever?\n1 - Sim\n2 - Não\n Informe a opção desejada: ')
+			if subscrever == '1':
+				csvFile = open(nomearqv,'w')
+				writer = csv.writer(csvFile)
+				writer.writerows(result)
+				csvFile.close()
+				break
+			elif subscrever == '2':
+				nomearqv = ""
+			elif subscrever != '1' and subscrever != '2':
+				print('Opção inválida! Insira uma opção válida.')
+    			
+    			
 
 def Solve(expression : str):
     result = []
@@ -142,14 +163,28 @@ def Solve(expression : str):
             cur.append(mask >> (n - i - 1) & 1)
         cur.append(Calculate(RPN, VariableValue))
         result.append(cur)
-    WriteToConsole(result)
-    # WriteToFile(result)
+    #WriteToConsole(result)
+    while(True):
+    	WriteToConsole(result)
+    	save = input("Deseja salvar este resultado?\n 1 - Sim\n 2 - Não\n Informe sua escolha: ")
+    	if save == '1':
+    		WriteToFile(result)
+    		print('\nArquivo salvo com sucesso!')
+    		break
+    	elif save == '2':
+    		print('\nOk, não salvamos seu resultado.')
+    		break
+    	else: 
+    		os.system('clear') or None
+    		print('Opção selecionada é inválida!\nPor favor, insira uma opção válida.')
+    		
 
 def main():
     expression = input("Enter Logical expression, please note that " + 
                      "your expression should use lower letter to represent variables, " + 
                      "but don't use 'v' as variable, because it is an operator in my code:\n")
-    Solve(expression)
-
+    #Solve(expression,save)
+    #save = input("Deseja salvar este resultado?\n 1 - Sim\n 2 - Não\n Informe sua escolha: ")
+    Solve(expression)	
 if __name__ == '__main__':
     main()
