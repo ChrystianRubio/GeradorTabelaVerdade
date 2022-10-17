@@ -37,7 +37,7 @@ This is the generated truth table:
   1  |  1  |  1  |  1
 ```
 
-# Portugues
+# Português
 
 
 # Gerador de tabela verdade
