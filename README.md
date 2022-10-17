@@ -36,3 +36,46 @@ This is the generated truth table:
   1  |  1  |  0  |  1
   1  |  1  |  1  |  1
 ```
+
+# Portugues
+
+
+# Gerador de tabela verdade
+Este código em python é um gerador automático de tabela verdade de uma expressão Lógica (LE), como (p v (p ^ q)) ^ !p -> r.
+
+# Operações suportadas
+
+Tem suporte a 5 operadores:
+- NOT: indicado como '!' ou '-' .
+- AND: denotado como '^' ou '.' .
+- OR: denotado como 'v' ou '+' .
+- Implicação material: indicada como '->' ou '>' .
+- equivalência: denotado como '<->' ou '~' .
+
+**Ordem das operações**: NOT > AND = OR > Implicação do Material = Equivalência
+- Os operadores NOT calcularão primeiro (prioridade mais alta).
+- Em seguida, os operadores AND e OR.
+- Por último, a Implicação Material e equivalência (menor prioridade).
+- Calculará da esquerda para a direita se 2 operadores tiverem o mesmo pedido.
+
+# Como usar
+Faça o download do [TruthTableGenerator.py](TruthTableGenerator.py) e execute o comando `python TruthTableGenerator.py`, depois insira sua expressão lógica, ele produzirá uma Tabela Verdade do seu LE.
+
+Você pode usar letra minúscula para representar variáveis, mas não use 'v' como variável, pois é um operador neste código. Portanto, você pode usar no máximo 25 variáveis.
+
+# Exemplo
+Minha expressão é: (p v (p ^ q)) ^ !p -> r
+
+Esta é a tabela verdade gerada:
+```
+  p | q | r | (p v (p ^ q)) ^ !p -> r
+  0 | 0 | 0 | 1
+  0 | 0 | 1 | 1
+  0 | 1 | 0 | 1
+  0 | 1 | 1 | 1
+  1 | 0 | 0 | 1
+  1 | 0 | 1 | 1
+  1 | 1 | 0 | 1
+  1 | 1 | 1 | 1
+```
+
