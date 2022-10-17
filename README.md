@@ -1,11 +1,9 @@
 # Truth Table Generator
 This python code is auto generate truth table of  a Logical Epression (LE), such as (p v (p ^ q)) ^ !p -> r. 
 
->(Vietnamese in [README-vi.md](README-vi.md))
-
 # Supported Operations
 
-My code supports 5 operators: 
+Has support to 5 operators: 
 - NOT: denoted as '!' or '-' . 
 - AND: denoted as '^' or '.' .
 - OR: denoted as 'v' or '+' .
@@ -19,12 +17,12 @@ My code supports 5 operators:
 - It will calculate from left to right if 2 operators have the same order.
 
 # How to use
-Download [TruthTableGenerator.py](TruthTableGenerator.py) and run by command `python TruthTableGenerator.py`, then enter your logical epression, it will output a Truth Table of your LE.
+Download [TruthTableGenerator.py](TruthTableGenerator.py) and run by command `python TruthTableGenerator.py`, then enter your logical expression, it will output a Truth Table of your LE.
 
-You can use lower letter to represent variables, but don't use 'v' as variable, because it is an operator in my code. Therefore, you can use at most 25 variables. But my time complexity is about O(2^n) with a ton of constants, so you shouldn't use too much variables, less than 15 variables is okay. 
+You can use lower letter to represent variables, but don't use 'v' as variable, because it is an operator in my code. Therefore, you can use at most 25 variables. But my time complexity is about O(2^n) with a ton of constants, so you shouldn't use too much variables, less than 15 variables is fine.
 
 # Example
-My epression is: (p v (p ^ q)) ^ !p -> r.
+My expression is: (p v (p ^ q)) ^ !p -> r
 
 This is the generated truth table:
 ```
