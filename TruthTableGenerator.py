@@ -201,15 +201,14 @@ def Solve(expression: str):
 
 
 def main():
-    expression = input("Escreva sua senteça lógica, por favor atente-se que " +
-                       "sua expressão deve usar letras minúsculas para representar variáveis, " +
-                       "mas não use 'v' como variável, pois ele é um operador.\n" +
-                       "utilize os seguintes operadores :\n"
-                       "NOT: indicado como '!' ou '-'\n"
-                       "AND: denotado como '^' ou '.'\n"
-                       "OR: denotado como 'v' ou '+'\n"
-                       "Implicação material: indicada como '->' ou '>'\n"
-                       "equivalência: denotado como '<->' ou '~'\n")
+    expression = input("Por favor atente-se que sua expressão deve usar apenas letras minúsculas para representar variáveis, mas não use 'v' como variável, pois ele é um operador."
+                       " Utilize parênteses para priorizar determinada operação.\n"+"Abaixo está a lista com os operadores disponíveis.\n\n"
+                        "  Negação: indicado como '!' ou '-'        \n"
+                        "  Conjunção: denotado como '^' ou '.'      \n"
+                        "  Disjunção: denotado como 'v' ou '+'      \n"
+                        "  Condicional: indicada como '->' ou '>'   \n"
+                        "  Bicondicional: denotado como '<->' ou '~'\n\n"  
+                       "Escreva a sua sentença: ")
     Solve(expression)
 
 
