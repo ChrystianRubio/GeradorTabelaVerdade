@@ -125,7 +125,7 @@ def Calculate(RPN: myStack, VariableValue: dict):
     return res.pop()
 
 
-def WriteToConsole(result: list): 
+def WriteToConsole(result: list):
     for row in result:
         tmp = row.pop()
         for x in row:
@@ -133,8 +133,8 @@ def WriteToConsole(result: list):
         print("  ", tmp, sep='')
         row.append(tmp)
 
-#Cria um arquivo ou subscreve um já existente
-def WriteToFile(result: list): 
+# Cria um arquivo ou subscreve um já existente
+def WriteToFile(result: list):
     nomearqv = ""
     while (True):
         if nomearqv == "":
@@ -159,9 +159,10 @@ def WriteToFile(result: list):
             elif subscrever != '1' and subscrever != '2':
                 print('Opção inválida! Insira uma opção válida.')
 
-# Função que representa a solução de todo o código,
-# ela que será chamada na main para executar as demais funções
-def Solve(expression: str): 
+
+def Solve(expression: str):
+    """ Função que representa a solução de todo o código,
+        ela que será chamada na main para executar as demais funções"""
     result = []
 
     ListVariable = GetVariable(expression)
@@ -200,9 +201,15 @@ def Solve(expression: str):
 
 
 def main():
-    expression = input("Coloque as expressões lógicas, por favor atente-se que " +
+    expression = input("Escreva sua senteça lógica, por favor atente-se que " +
                        "sua expressão deve usar letras minúsculas para representar variáveis, " +
-                       "mas não use 'v' como variável, porque ele é um operador no meu código:\n")
+                       "mas não use 'v' como variável, pois ele é um operador.\n" +
+                       "utilize os seguintes operadores :\n"
+                       "NOT: indicado como '!' ou '-'\n"
+                       "AND: denotado como '^' ou '.'\n"
+                       "OR: denotado como 'v' ou '+'\n"
+                       "Implicação material: indicada como '->' ou '>'\n"
+                       "equivalência: denotado como '<->' ou '~'\n")
     Solve(expression)
 
 
