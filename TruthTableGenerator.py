@@ -125,7 +125,7 @@ def Calculate(RPN: myStack, VariableValue: dict):
     return res.pop()
 
 
-def WriteToConsole(result: list):
+def WriteToConsole(result: list): 
     for row in result:
         tmp = row.pop()
         for x in row:
@@ -133,8 +133,8 @@ def WriteToConsole(result: list):
         print("  ", tmp, sep='')
         row.append(tmp)
 
-
-def WriteToFile(result: list):
+#Cria um arquivo ou subscreve um já existente
+def WriteToFile(result: list): 
     nomearqv = ""
     while (True):
         if nomearqv == "":
@@ -159,8 +159,9 @@ def WriteToFile(result: list):
             elif subscrever != '1' and subscrever != '2':
                 print('Opção inválida! Insira uma opção válida.')
 
-
-def Solve(expression: str):
+# Função que representa a solução de todo o código,
+# ela que será chamada na main para executar as demais funções
+def Solve(expression: str): 
     result = []
 
     ListVariable = GetVariable(expression)
