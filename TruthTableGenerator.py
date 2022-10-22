@@ -172,7 +172,7 @@ def Solve(expression: str):
     RPN = GetRPN(expression)
     n = len(ListVariable)
 
-    # brute force all value of all variables
+    # Força todos os valores de todas as variáveis
     for mask in range(2 ** n):
         VariableValue = {'0': 0, '1': 1}
         cur = []
@@ -181,7 +181,7 @@ def Solve(expression: str):
             cur.append(mask >> (n - i - 1) & 1)
         cur.append(Calculate(RPN, VariableValue))
         result.append(cur)
-    # WriteToConsole(result)
+    # Escreve no console o resultado(result)
     while (True):
         WriteToConsole(result)
         save = input(
