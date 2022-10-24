@@ -183,9 +183,22 @@ def Solve(expression: str):
             cur.append(mask >> (n - i - 1) & 1)
         cur.append(Calculate(RPN, VariableValue))
         result.append(cur)
+
+	#Loop para verificar o tipo da expressão lógica	
+ 
+    for x in range(1,len(result)):
+    	if result[x][-1] == result[x-1][-1]:
+    		if result[x][-1] == 1:
+    			verifica = "tautologia"
+    		else:
+    			verifica = "contradicao"
+    	else:
+    		verifica = "contingencia"
+
     # Escreve no console o resultado(result)
     while (True):
         WriteToConsole(result)
+        print('\nA expressão é uma: '+ verifica)
         save = input(
             "\nDeseja salvar este resultado?\n 1 - Sim\n 2 - Não\n Informe sua escolha: ")
         if save == '1':
@@ -210,7 +223,6 @@ def main():
                         "  Bicondicional: denotado como '<->' ou '~'\n\n"  
                        "Escreva a sua sentença: ")
     Solve(expression)
-
 
 if __name__ == '__main__':
     main()
