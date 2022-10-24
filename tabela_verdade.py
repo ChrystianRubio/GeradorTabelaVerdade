@@ -184,6 +184,7 @@ def Solve(expression: str):
         cur.append(Calculate(RPN, VariableValue))
         result.append(cur)
 
+
 	#Loop para verificar o tipo da expressão lógica	
  
     for x in range(1,len(result)):
